@@ -1,4 +1,6 @@
 # mihomegateway
+
+##About
 Read data from the Xiaomi Mi Smart Home Gateway and send it to a Redis instance. 
 The worker will listen to heartbeat and report data sent by all compatible gateways on the network and split their data values into individual json objects and push them into a Redis list (_mihome:incoming_) for further processing by other services.
 
@@ -24,9 +26,6 @@ Similarly, the hearbeat of an Aquara open/close sensor with two attribute-value 
 {'model': 'sensor_magnet.aq2', 'sid': '158d00016c40ff', 'short_id': 53267, 'cmd': 'heartbeat', 'ts': '2020-07-22T20:04:36', 'att': 'voltage', 'val': 3055}
 {'model': 'sensor_magnet.aq2', 'sid': '158d00016c40ff', 'short_id': 53267, 'cmd': 'heartbeat', 'ts': '2020-07-22T20:04:36', 'att': 'status', 'val': 'close'}
 ```
-
-
-
 
 ## Kudos
 I have adapted the core logic for reading the UDP multicast from https://github.com/fcuiller/xiaomi-get-temperature
