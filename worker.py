@@ -1,6 +1,5 @@
 """
-Xiaomi gateway sniffer
-adapted from https://github.com/fcuiller/xiaomi-get-temperature
+Logic for reading the gateway data adapted from https://github.com/fcuiller/xiaomi-get-temperature
 """
 from socket import socket, AF_INET, SOCK_DGRAM, INADDR_ANY, inet_aton, IPPROTO_IP, IP_ADD_MEMBERSHIP
 import struct
@@ -16,14 +15,13 @@ SOCKET_BUFSIZE = 1024
 SOCKET_TIMEOUT = 30
 
 
-
-
-
 async def main():
     redis_uri = os.environ.get("REDIS_URI", None)
-    if redis_uri is None:
-        exit("Please set REDIS_URI (and if needed: REDIS_PW) environment variables")
     redis_pw = os.environ.get("REDIS_PW", None)
+    if redis_uri is None:
+        redis_uri = "redis://localhost:6379/0"
+        print("Defaulting to redis://localhost:6379/0")
+        print("Set REDIS_URI (and if needed: REDIS_PW) environment variables to specify a different instance")
     pool = await aioredis.create_pool(redis_uri, password=redis_pw)
     sock = socket(AF_INET, SOCK_DGRAM)
     sock.bind(('', UDP_PORT))
@@ -50,10 +48,8 @@ async def main():
                 s["token"] = data["token"]
             except KeyError:
                 pass
-            print(s)
+            print(s["ts"], s["sid"], s["model"], s["att"], s["val"], sep="\t")
             await pool.execute("lpush", "mihome:incoming", json.dumps(s))
-
-
     sock.close()
     pool.close()
     await pool.wait_closed()
