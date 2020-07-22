@@ -32,7 +32,7 @@ I have adapted the core logic for reading the UDP multicast from https://github.
 
 ## Example
 
-Assuming you have Redis using on localhost with the default configuration (_redis://localhost:6379/0_) you can use the following commands to build and then run the image:
+Assuming you have Redis running on localhost with the default configuration (_redis://localhost:6379/0_) you can use the following commands to build and then run the image:
 
 ```
 docker build -t mhgw .
