@@ -16,7 +16,7 @@ will get pushed as
 {'model': 'gateway', 'sid': '[REDACTED]', 'short_id': '0', 'cmd': 'heartbeat', 'ts': '2020-07-22T20:02:40', 'att': 'ip', 'val': '192.168.178.25', 'token': 'KUsKFj3RxiJOMgmR'}
 ```
 
-Similarly, the hearbeat of an Aquara open/close sensor with two attribute-value pairs (voltage & status) will get split into two:
+Similarly, the hearbeat of an Aquara open/close sensor with two attribute-value pairs (voltage & status) will get split up:
 
 ```
 {'cmd': 'heartbeat', 'model': 'sensor_magnet.aq2', 'sid': '158d00016c40ff', 'short_id': 53267, 'data': '{"voltage":3055,"status":"close"}'}
