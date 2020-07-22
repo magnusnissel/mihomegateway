@@ -1,6 +1,6 @@
 # mihomegateway
 
-##About
+## About
 Read data from the Xiaomi Mi Smart Home Gateway and send it to a Redis instance. 
 The worker will listen to heartbeat and report data sent by all compatible gateways on the network and split their data values into individual json objects and push them into a Redis list (_mihome:incoming_) for further processing by other services.
 
