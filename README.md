@@ -19,12 +19,12 @@ will get pushed as
 Similarly, the hearbeat of an Aquara open/close sensor with two attribute-value pairs (voltage & status) will get split up:
 
 ```
-{'cmd': 'heartbeat', 'model': 'sensor_magnet.aq2', 'sid': '158d00016c40ff', 'short_id': 53267, 'data': '{"voltage":3055,"status":"close"}'}
+{'cmd': 'heartbeat', 'model': 'sensor_magnet.aq2', 'sid': '[REDACTED]', 'short_id': 53267, 'data': '{"voltage":3055,"status":"close"}'}
 ```
 
 ```
-{'model': 'sensor_magnet.aq2', 'sid': '158d00016c40ff', 'short_id': 53267, 'cmd': 'heartbeat', 'ts': '2020-07-22T20:04:36', 'att': 'voltage', 'val': 3055}
-{'model': 'sensor_magnet.aq2', 'sid': '158d00016c40ff', 'short_id': 53267, 'cmd': 'heartbeat', 'ts': '2020-07-22T20:04:36', 'att': 'status', 'val': 'close'}
+{'model': 'sensor_magnet.aq2', 'sid': '[REDACTED]', 'short_id': 53267, 'cmd': 'heartbeat', 'ts': '2020-07-22T20:04:36', 'att': 'voltage', 'val': 3055}
+{'model': 'sensor_magnet.aq2', 'sid': '[REDACTED]', 'short_id': 53267, 'cmd': 'heartbeat', 'ts': '2020-07-22T20:04:36', 'att': 'status', 'val': 'close'}
 ```
 
 ## Kudos
